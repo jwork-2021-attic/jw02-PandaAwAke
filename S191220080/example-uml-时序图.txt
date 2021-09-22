@@ -1,0 +1,17 @@
+@startuml
+
+actor		theGeezer					as Geezer
+entity		sorter
+collections	line
+participant	"Gourd.ONE/TWO/.../SEVEN"	as Gourds
+entity		writer
+
+Gourds -> line		: put()
+sorter -> Geezer	: setSorter(sorter)
+line   -> Geezer
+Geezer -> Geezer	: lineUp(line)
+note left: 直接进行一个序的排
+Geezer -> writer
+writer -> writer	: 输出结果
+
+@enduml
