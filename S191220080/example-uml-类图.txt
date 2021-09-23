@@ -30,10 +30,10 @@ interface Sorter {
 class BubbleSorter implements Sorter {
 	-int[] a
 	-String plan
-	+void load(int[] a)
+	+<<override>> void load(int[] a)
 	-void swap(int i, int j)
-	+void sort()
-	+String getPlan()
+	+<<override>> void sort()
+	+<<override>> String getPlan()
 }
 
 class Line {

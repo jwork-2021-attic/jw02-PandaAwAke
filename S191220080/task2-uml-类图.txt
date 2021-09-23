@@ -1,0 +1,119 @@
+@startuml
+
+interface Linable {
+	+void setPosition(Position position)
+	+Position getPosition()
+	+int getValue()
+}
+
+class LittleDevil implements Linable {
+	+{static} LittleDevil[] littleDevils
+	+{static} final int LITTLEDEVILS = 64
+	-int r
+	-int g
+	-int b
+	-Position position
+	+{static} Gourd getLittleDevilByRank(int rank)
+	+{static} void setPositionsByRanks(ArrayList<Integer> ranksBefore, ArrayList<Integer> ranksAfter)
+	+int rank()
+	+<<override>> String toString()
+	+<<override>> void setPosition(Position position)
+	+<<override>> Position getPosition()
+	+<<override>> int getValue()
+	+void swapPosition(Gourd another)
+}
+
+interface Sorter {
+	+void load(int[] elements)
+	+void sort()
+	+String getPlan()
+	+boolean isSwapBased()
+}
+
+class BubbleSorter implements Sorter {
+	-int[] a
+	-String plan
+	-void swap(int i, int j)
+	+<<override>> void load(int[] a)
+	+<<override>> void sort()
+	+<<override>> String getPlan()
+	+<<override>> boolean isSwapBased()
+}
+
+class SwapBasedQuickSorter implements Sorter {
+	-int[] a
+	-{static} final Random random
+	-String plan
+	+<<override>> void load(int[] a)
+	+<<override>> void sort()
+	+<<override>> String getPlan()
+	+<<override>> boolean isSwapBased()
+	-void sort(int left, int right)
+	-int partition(int left, int right)
+	-void swap(int i, int j)
+}
+
+class NonSwapBasedQuickSorter implements Sorter {
+	-int[] a
+	-{static} final Random random
+	-String plan
+	+<<override>> void load(int[] a)
+	+<<override>> void sort()
+	+<<override>> String getPlan()
+	+<<override>> boolean isSwapBased()
+	-void sort(int left, int right)
+	-int partition(int left, int right)
+	-String GetSequenceString()
+}
+
+class RadixSorter implements Sorter {
+	-int[] a
+	-ArrayList<LinkedList<Integer>> buckets
+	-{static} final int RADIX_NUMBER = 8
+	-String plan
+	+<<override>> void load(int[] a)
+	+<<override>> void sort()
+	+<<override>> String getPlan()
+	+<<override>> boolean isSwapBased()
+	-String GetSequenceString()
+}
+
+class Line {
+	-Position[] positions
+	+Line(int length)
+	+void put(Linable linable, int i)
+	+Linable get(int i)
+	+String toString()
+	+Linable[] toArray()
+}
+
+class Position {
+	-Linable linable
+	+void setLinable(Linable linable)
+}
+
+class Snake {
+	-{static} Snake theSnake
+	+{static} Snake getTheSnake()
+	-Sorter sorter
+	+setSorter(Sorter sorter)
+	+String lineUp(Line line)
+	-void execute(String step)
+}
+
+class PlanParser {
+	+{static} String[] parsePlan(String plan)
+	+{static} int[] parseSwapStep(String step)
+	+{static} ArrayList<ArrayList<Integer>> parseCommonStep(String step)
+}
+
+class Scene
+
+Position *-- Linable
+LittleDevil *-- Position
+Snake o-- Sorter
+Line o-- Position
+PlanParser o-- Snake
+
+
+@enduml
