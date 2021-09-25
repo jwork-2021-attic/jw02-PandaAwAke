@@ -1,12 +1,14 @@
 package src;
 
-public class Line {
-
-    public Line(int length) {
-        this.positions = new Position[length];
-    }
+public class Matrix {
 
     private Position[] positions;
+    private int order;
+
+    public Matrix(int order) {
+        this.positions = new Position[order * order];
+        this.order = order;
+    }
 
     public void put(Linable linable, int i) {
         if (this.positions[i] == null) {
@@ -45,7 +47,7 @@ public class Line {
         for (Position p : positions) {
             cnt++;
             lineString += p.linable.toString();
-            if (cnt == 8) {
+            if (cnt == this.order) {
                 lineString += "\n";
                 cnt = 0;
             }

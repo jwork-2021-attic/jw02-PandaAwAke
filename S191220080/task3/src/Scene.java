@@ -11,7 +11,7 @@ public class Scene {
 
     public static void main(String[] args) throws IOException {
 
-        Line line = new Line(LITTLEDEVILS);
+        Matrix matrix = new Matrix(8);
         // 随机初始化序列
         Random random = new Random();
         int[] indices = new int[LITTLEDEVILS];
@@ -24,7 +24,7 @@ public class Scene {
             indices[i2] = t;
         }
         for (int i = 0; i < LITTLEDEVILS; i++)
-            line.put(LittleDevil.littleDevils[i], indices[i]);
+            matrix.put(LittleDevil.littleDevils[i], indices[i]);
 
         Snake theSnake = Snake.getTheSnake();
 
@@ -35,7 +35,7 @@ public class Scene {
 
         theSnake.setSorter(sorter);
 
-        String log = theSnake.lineUp(line);
+        String log = theSnake.lineUp(matrix);
 
         BufferedWriter writer;
         writer = new BufferedWriter(new FileWriter("result.txt"));

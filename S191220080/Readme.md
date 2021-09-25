@@ -128,9 +128,7 @@ Swap-based 快速排序可视化链接：https://asciinema.org/a/qDiCeNMfYDuAY7w
 
 只需要在合适的地方换行就行了吧...？
 
-Line.java 是我唯一更改的地方：
-
-![image-20210924004057442](E:\大学资料\计算机课\Java高级程序设计\jw02-PandaAwAke\S191220080\Readme.assets\image-20210924004057442.png)
+按照要求把类 Line 改成了 Matrix，其实就是记一下阶数，然后输出时在适当的地方换行...
 
 BubbleSorter 可视化链接：https://asciinema.org/a/oMSsqpc1UAVQ2ld0LflDNF2wd
 

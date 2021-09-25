@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.Random;
 
-import src.Line.Position;
+import src.Matrix.Position;
 
 public class LittleDevil implements Linable {
     private final int r;

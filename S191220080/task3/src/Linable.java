@@ -1,6 +1,6 @@
 package src;
 
-import src.Line.Position;
+import src.Matrix.Position;
 
 public interface Linable {
 
